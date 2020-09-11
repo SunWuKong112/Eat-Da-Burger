@@ -1,0 +1,29 @@
+<h2>EAT.</h2>
+<ol>
+     {{# each}}
+          {{#unless isDevoured}}
+               {{> burger-block isDevoured=false}}
+          {{/unless}}
+     {{/each}}
+</ol>
+
+<h2>OR BE EATEN.</h2>
+
+{{# each}}
+<ol>
+     {{# each}}
+          {{#if isDevoured}}
+               {{> burger-block isDevoured=true}}
+          {{/if}}
+     {{/each}}
+</ol>
+
+
+<h2>BECOME A HUNTER.</h2>
+<h3>WERDEN SIE JÄGER.</h3>
+<form class="create-form">
+     <div class="form-group">
+          <label for="bu">ENTER YOUR PREY.</label>
+          <input type="text" id="bu" name="burger_name">
+     </div>
+</form>
