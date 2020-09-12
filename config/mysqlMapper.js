@@ -5,8 +5,8 @@ const mysqlMapper = {
           queryString = ` SELECT * FROM ${table}`;
           connection.query(queryString, (err, result)=>{
                if (err) throw err;
+               cb(result);
           });
-          cb(result);
      },
      insertOne: (table, colToInsert, whatToInsert, cb)=>{
           queryString = `INSERT INTO ${table} (${colToInsert}, ) VALUES ("${whatToInsert}")`;

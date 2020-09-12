@@ -1,6 +1,6 @@
 <h2>EAT.</h2>
 <ol>
-     {{# each}}
+     {{#each burgers}}
           {{#unless isDevoured}}
                {{> burger-block isDevoured=false}}
           {{/unless}}
@@ -9,9 +9,8 @@
 
 <h2>OR BE EATEN.</h2>
 
-{{# each}}
 <ol>
-     {{# each}}
+     {{#each burgers}}
           {{#if isDevoured}}
                {{> burger-block isDevoured=true}}
           {{/if}}

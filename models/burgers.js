@@ -11,8 +11,11 @@ const burgers ={
                cb(result);
           });
      },
-     updateOne: ()=>{
+     updateOne: (table, colToChange, newValue, where, isThis, cb)=>{
           mysqlMapper.updateOne(table, colToChange, newValue, where, isThis, (result)=>{
                cb(result);
           });
      }
+}
+
+module.exports = burgers;

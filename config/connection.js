@@ -6,12 +6,14 @@ var connection = mysql.createConnection({
      user: "root",
      password: "Doodle.bomb.com0516@",
      database: "burgers_db"
-   });
+});
    
-   connection.connect(function(err) {
+connection.connect(function(err) {
      if (err) {
        console.error("error connecting: " + err.stack);
        return;
      }
      console.log("connected as id " + connection.threadId);
-   });
+});
+
+module.exports = connection;
