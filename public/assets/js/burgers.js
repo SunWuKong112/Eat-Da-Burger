@@ -22,7 +22,6 @@ $(function(){
           var newBurger = {
                burger: $("#bu").val().trim()
           };
-          console.log(newBurger);
           $.ajax(`/api/burger`,{
                type: "POST",
                data: newBurger
