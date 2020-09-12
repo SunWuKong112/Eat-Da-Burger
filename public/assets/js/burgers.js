@@ -30,7 +30,6 @@ $(function(){
                type: "POST",
                data: newBurger
           }).then(()=>{
-               console.log(`successfully grilled burger: ${name}`);
                location.reload();
           });
      });
@@ -39,9 +38,6 @@ $(function(){
           var id = $(this).data("id");
           var devoured = $(this).data("isDevoured");
           var burgerName = $(this).data("name");
-          console.log($(this).data("id"));
-          console.log($(this).data("isdevoured"));
-          console.log($(this).data("name"));
 
           var devouredState = {
                isDevoured: devoured

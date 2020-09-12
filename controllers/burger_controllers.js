@@ -8,7 +8,6 @@ router.get("/", (request, response)=>{
           var hbsObj = {
                burgers : result
           };
-          console.log(hbsObj);
           response.render("index", hbsObj);
      });
 });
@@ -16,8 +15,6 @@ router.get("/", (request, response)=>{
 router.post("/api/burger", (request, response)=>{
      var burger = request.body.burger;
      burgers.insertOne("burgers", "burger_name", burger, (result)=>{
-          console.log(`${burger} grilled successfully.`)
-          console.log(response);
           response.json({ id: result.insertId });
      });
 });
