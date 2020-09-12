@@ -4,4 +4,7 @@
      {{#unless isDevoured}}
           <button class="eat" data-id="{{id}}" data-name="{{burger_name}}" data-isdevoured="{{isDevoured}}">EAT.</button>
      {{/unless}}
+     {{#if isDevoured}}
+          <button class="digest" data-id="{{id}}" data-name="{{burger_name}}" data-isdevoured="{{isDevoured}}">DIGEST.</button>
+     {{/if}}
 </li>

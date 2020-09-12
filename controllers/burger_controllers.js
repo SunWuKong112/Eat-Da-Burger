@@ -13,9 +13,11 @@ router.get("/", (request, response)=>{
      });
 });
 
-router.post("/api/:burger", (request, response)=>{
-     var burger = request.params.burger;
+router.post("/api/burger", (request, response)=>{
+     var burger = request.body.burger;
      burgers.insertOne("burgers", "burger_name", burger, (result)=>{
+          console.log(`${burger} grilled successfully.`)
+          console.log(response);
           response.json({ id: result.insertId });
      });
 });
@@ -23,8 +25,15 @@ router.post("/api/:burger", (request, response)=>{
 router.put("/api/burger/:id", (request, response)=>{
      var burger = request.params.id;
      burgers.updateOne("burgers", "isDevoured", "TRUE", "id", burger, (result)=>{
-        if(result.changedRos == 0) return response.status(404).end();
+        if(result.changedRows == 0) return response.status(404).end();
         response.status(200).end();  
+     });
+});
+
+router.delete("/api/burger/:id", (request, response)=>{
+     var burger = request.params.id;
+     burgers.destroy("burgers", "id", burger, (result)=>{
+          response.status(200).end();
      });
 });
 

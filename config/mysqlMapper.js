@@ -9,14 +9,21 @@ const mysqlMapper = {
           });
      },
      insertOne: (table, colToInsert, whatToInsert, cb)=>{
-          queryString = `INSERT INTO ${table} (${colToInsert}, ) VALUES ("${whatToInsert}")`;
+          queryString = `INSERT INTO ${table} (${colToInsert}) VALUES ("${whatToInsert}")`;
           connection.query(queryString, (err, result)=>{
                if (err) throw err;
                cb(result);
           });
      },
      updateOne: (table, colToChange, newValue, where, isThis, cb)=>{
-          queryString = `UPDATE ${table} SET ${colToChange} = ${newValue} WHERE ${where} = ${isThis}`;
+          queryString = `UPDATE ${table} SET ${colToChange} = ${newValue} WHERE ${where} = ${isThis};`;
+          connection.query(queryString, (err, result)=>{
+               if(err) throw err;
+               cb(result);
+          });
+     },
+     destroy: (table, where, toDelete, cb)=>{
+          queryString = `DELETE FROM ${table} WHERE ${where} = ${toDelete};`;
           connection.query(queryString, (err, result)=>{
                if(err) throw err;
                cb(result);

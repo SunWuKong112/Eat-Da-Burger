@@ -15,6 +15,11 @@ const burgers ={
           mysqlMapper.updateOne(table, colToChange, newValue, where, isThis, (result)=>{
                cb(result);
           });
+     },
+     destroy: (table, where, toDelete, cb)=>{
+          mysqlMapper.destroy(table, where, toDelete, (result)=>{
+               cb(result);
+          });
      }
 }
 
